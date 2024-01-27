@@ -135,4 +135,4 @@ EXPOSE 12004/tcp
 # For BB_V4-bb-data2-login_server
 EXPOSE 12005/tcp
 
-CMD mkdir -p /config/players && mkdir -p /config/teams && mkdir -p /config/licenses && type /config/autoexec.sh && chmod +x autoexec.sh && /config/autoexec.sh; ./newserv
+CMD mkdir -p /config/players && mkdir -p /config/teams && mkdir -p /config/licenses && type /config/autoexec.sh && chmod +x /config/autoexec.sh && /config/autoexec.sh; ./newserv
