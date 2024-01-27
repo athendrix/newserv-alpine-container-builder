@@ -112,6 +112,8 @@ RUN rm system/quests/battle/b88001-bb-j.bin && \
     rm system/quests/vr/q313-bb-j.bin && \
     rm system/quests/vr/q314-bb-j.bin
 
+# I only care about the GameCube versions and Blue Burst, so that's what I've exposed here.
+# EXPOSE doesn't actually do anything for kubernetes deployments. So this is really just a reminder to me.
 # For Gamecube DNS redirection
 EXPOSE 53/udp
 # For GC_V3-console-lobby-lobby_server
@@ -133,4 +135,4 @@ EXPOSE 12004/tcp
 # For BB_V4-bb-data2-login_server
 EXPOSE 12005/tcp
 
-CMD mkdir -p /config/players && mkdir -p /config/teams && mkdir -p /config/licenses && ./newserv
+CMD mkdir -p /config/players && mkdir -p /config/teams && mkdir -p /config/licenses && type /config/autoexec.sh && chmod +x autoexec.sh && /config/autoexec.sh; ./newserv
