@@ -1,25 +1,24 @@
-FROM alpine:latest AS base
-RUN apk add procps
-WORKDIR /app
-
-FROM base AS build
+FROM alpine:latest
 WORKDIR /src
-RUN apk add build-base git libevent-dev cmake zlib-dev && \
+RUN apk add procps build-base git libevent-dev cmake zlib-dev && \
     git clone https://github.com/fuzziqersoftware/phosg.git && \
+    cd /src/phosg && cmake . && make && make test && make install && cd .. && \
+    rm -R /src/phosg && \
     git clone https://github.com/fuzziqersoftware/resource_dasm.git && \
-    git clone https://github.com/fuzziqersoftware/newserv.git
-WORKDIR /src/phosg
-RUN cmake . && make && make test && make install
-WORKDIR /src/resource_dasm
-RUN cmake . && make && make install
-WORKDIR /src/newserv
-RUN cmake . && make && cp system/maps/bb-v4/*.dat system/patch-bb/data
-
-RUN mkdir /config && \
+    cd /src/resource_dasm && cmake . && make && make install && cd .. && \
+    rm -R /src/resource_dasm && \
+    git clone https://github.com/fuzziqersoftware/newserv.git && \
+    cd /src/newserv && cmake . && make && cp system/maps/bb-v4/*.dat system/patch-bb/data && \
+    apk del build-base git cmake && \
+    adduser -HDu 1000 pso && \
+    chown -R pso:pso /src/newserv && \
+    mkdir /config && \
     ln -s /config/config.json system/config.json && \
     ln -s /config/players system/players && \
     ln -s /config/teams system/teams && \
     ln -s /config/licenses system/licenses 
+
+WORKDIR /src/newserv
 
 # Remove all the Blue Burst Japanese quests that have an English translation
 RUN rm system/quests/battle/b88001-bb-j.bin && \
@@ -112,7 +111,7 @@ RUN rm system/quests/battle/b88001-bb-j.bin && \
     rm system/quests/vr/q313-bb-j.bin && \
     rm system/quests/vr/q314-bb-j.bin
 
-# I only care about the GameCube versions and Blue Burst, so that's what I've exposed here.
+# I personally only care about the GameCube versions and Blue Burst, so that's what I've exposed here.
 # EXPOSE doesn't actually do anything for kubernetes deployments. So this is really just a reminder to me.
 # For Gamecube DNS redirection
 EXPOSE 53/udp
@@ -135,4 +134,7 @@ EXPOSE 12004/tcp
 # For BB_V4-bb-data2-login_server
 EXPOSE 12005/tcp
 
-CMD mkdir -p /config/players && mkdir -p /config/teams && mkdir -p /config/licenses && type /config/autoexec.sh && chmod +x /config/autoexec.sh && /config/autoexec.sh; ./newserv
+CMD mkdir -p /config/players && mkdir -p /config/teams && mkdir -p /config/licenses && \
+cp -n /src/newserv/system/config.example.json /config/config.json && chown -R pso:pso /config && \
+type /config/autoexec.sh && chmod +x /config/autoexec.sh && /config/autoexec.sh; \
+./newserv
