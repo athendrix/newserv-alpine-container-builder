@@ -1,6 +1,6 @@
 FROM alpine:latest
 WORKDIR /src
-RUN apk add procps build-base git libevent-dev cmake zlib-dev icu-libs && \
+RUN apk add procps build-base git libevent-dev cmake zlib-dev icu-libs asio-dev && \
     git clone https://github.com/fuzziqersoftware/phosg.git && \
     cd /src/phosg && cmake . && make && make test && make install && cd .. && \
     rm -R /src/phosg && \
