@@ -23,9 +23,10 @@ WORKDIR /src/newserv
 # Remove all the Blue Burst foreign language quests that have an English translation
 # (Because otherwise, my Blue Burst Clients grab the Japanese versions)
 RUN for lang in j g f s; do \
-      find system/quests -name "*-${lang}.bin" -type f | while read lang_file; do \
-        e_file=$(echo "$lang_file" | sed "s/-${lang}.bin$/-e.bin/"); \
-        if [ -f "$e_file" ]; then \
+      find system/quests \( -type f -o -type l \) -name "*-${lang}.bin" | while read lang_file; do \
+        e_file=$(echo "$lang_file" | sed "s/-${lang}\.bin$/-e.bin/"); \
+        if [ -e "$e_file" ]; then \
+          echo "Removing redundant $lang_file (Link or File)"; \
           rm "$lang_file"; \
         fi; \
       done; \
