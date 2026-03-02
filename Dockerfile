@@ -29,8 +29,8 @@ RUN for lang in j g f s; do \
           rm "$lang_file"; \
         fi; \
       done; \
-    done
-done
+    done ; \
+done;
 
 # I personally only care about the GameCube versions and Blue Burst, so that's what I've exposed here.
 # EXPOSE doesn't actually do anything for kubernetes deployments. So this is really just a reminder to me.
