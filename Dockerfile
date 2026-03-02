@@ -22,182 +22,33 @@ WORKDIR /src/newserv
 
 # Remove all the Blue Burst Japanese quests that have an English translation
 # (Because otherwise, my Blue Burst Clients grab the Japanese versions)
-RUN rm -f system/quests/battle/b88001-bb-j.bin ; \
-    rm -f system/quests/battle/b88002-bb-j.bin ; \
-    rm -f system/quests/battle/b88003-bb-j.bin ; \
-    rm -f system/quests/battle/b88004-bb-j.bin ; \
-    rm -f system/quests/battle/b88005-bb-j.bin ; \
-    rm -f system/quests/battle/b88006-bb-j.bin ; \
-    rm -f system/quests/battle/b88007-bb-j.bin ; \
-    rm -f system/quests/battle/b88008-bb-j.bin ; \
-    rm -f system/quests/challenge-ep1/c88101-bb-j.bin ; \
-    rm -f system/quests/challenge-ep1/c88102-bb-j.bin ; \
-    rm -f system/quests/challenge-ep1/c88103-bb-j.bin ; \
-    rm -f system/quests/challenge-ep1/c88104-bb-j.bin ; \
-    rm -f system/quests/challenge-ep1/c88105-bb-j.bin ; \
-    rm -f system/quests/challenge-ep1/c88106-bb-j.bin ; \
-    rm -f system/quests/challenge-ep1/c88107-bb-j.bin ; \
-    rm -f system/quests/challenge-ep1/c88108-bb-j.bin ; \
-    rm -f system/quests/challenge-ep1/c88109-bb-j.bin ; \
-    rm -f system/quests/challenge-ep2/d88201-bb-j.bin ; \
-    rm -f system/quests/challenge-ep2/d88202-bb-j.bin ; \
-    rm -f system/quests/challenge-ep2/d88203-bb-j.bin ; \
-    rm -f system/quests/challenge-ep2/d88204-bb-j.bin ; \
-    rm -f system/quests/challenge-ep2/d88205-bb-j.bin ; \
-    rm -f system/quests/events/q073-bb-j.bin ; \
-    rm -f system/quests/events/q124-bb-j.bin ; \
-    rm -f system/quests/events/q125-bb-j.bin ; \
-    rm -f system/quests/events/q127-bb-j.bin ; \
-    rm -f system/quests/events/q144-bb-j.bin ; \
-    rm -f system/quests/events/q145-bb-j.bin ; \
-    rm -f system/quests/events/q146-bb-j.bin ; \
-    rm -f system/quests/events/q201-bb-j.bin ; \
-    rm -f system/quests/events/q207-bb-j.bin ; \
-    rm -f system/quests/events/q220-bb-j.bin ; \
-    rm -f system/quests/events/q232-bb-j.bin ; \
-    rm -f system/quests/events/q239-bb-j.bin ; \
-    rm -f system/quests/events/q240-bb-j.bin ; \
-    rm -f system/quests/events/q241-bb-j.bin ; \
-    rm -f system/quests/events/q242-bb-j.bin ; \
-    rm -f system/quests/events/q243-bb-j.bin ; \
-    rm -f system/quests/events/q248-bb-j.bin ; \
-    rm -f system/quests/events/q303-bb-j.bin ; \
-    rm -f system/quests/events/q304-bb-j.bin ; \
-    rm -f system/quests/events/q305-bb-j.bin ; \
-    rm -f system/quests/events/q312-bb-j.bin ; \
-    rm -f system/quests/events/q497-bb-j.bin ; \
-    rm -f system/quests/events/q498-bb-j.bin ; \
-    rm -f system/quests/events/q499-bb-j.bin ; \
-    rm -f system/quests/events/q504-bb-j.bin ; \
-    rm -f system/quests/extermination/q101-bb-j.bin ; \
-    rm -f system/quests/extermination/q102-bb-j.bin ; \
-    rm -f system/quests/extermination/q103-bb-j.bin ; \
-    rm -f system/quests/extermination/q104-bb-j.bin ; \
-    rm -f system/quests/extermination/q108-bb-j.bin ; \
-    rm -f system/quests/extermination/q109-bb-j.bin ; \
-    rm -f system/quests/extermination/q110-bb-j.bin ; \
-    rm -f system/quests/extermination/q111-bb-j.bin ; \
-    rm -f system/quests/extermination/q117-bb-j.bin ; \
-    rm -f system/quests/extermination/q233-bb-j.bin ; \
-    rm -f system/quests/extermination/q234-bb-j.bin ; \
-    rm -f system/quests/extermination/q235-bb-j.bin ; \
-    rm -f system/quests/extermination/q236-bb-j.bin ; \
-    rm -f system/quests/extermination/q811-bb-j.bin ; \
-    rm -f system/quests/extermination/q812-bb-j.bin ; \
-    rm -f system/quests/extermination/q813-bb-j.bin ; \
-    rm -f system/quests/extermination/q814-bb-j.bin ; \
-    rm -f system/quests/extermination/q815-bb-j.bin ; \
-    rm -f system/quests/extermination/q816-bb-j.bin ; \
-    rm -f system/quests/extermination/q817-bb-j.bin ; \
-    rm -f system/quests/extermination/q818-bb-j.bin ; \
-    rm -f system/quests/extermination/q819-bb-j.bin ; \
-    rm -f system/quests/extermination/q820-bb-j.bin ; \
-    rm -f system/quests/government-ep1/q401-bb-j.bin ; \
-    rm -f system/quests/government-ep1/q402-bb-j.bin ; \
-    rm -f system/quests/government-ep1/q403-bb-j.bin ; \
-    rm -f system/quests/government-ep1/q404-bb-j.bin ; \
-    rm -f system/quests/government-ep1/q405-bb-j.bin ; \
-    rm -f system/quests/government-ep1/q406-bb-j.bin ; \
-    rm -f system/quests/government-ep1/q407-bb-j.bin ; \
-    rm -f system/quests/government-ep1/q408-bb-j.bin ; \
-    rm -f system/quests/government-ep1/q409-bb-j.bin ; \
-    rm -f system/quests/government-ep1/q410-bb-j.bin ; \
-    rm -f system/quests/government-ep1/q411-bb-j.bin ; \
-    rm -f system/quests/government-ep1/q412-bb-j.bin ; \
-    rm -f system/quests/government-ep1/q413-bb-j.bin ; \
-    rm -f system/quests/government-ep1/q414-bb-j.bin ; \
-    rm -f system/quests/government-ep1/q415-bb-j.bin ; \
-    rm -f system/quests/government-ep2/q451-bb-j.bin ; \
-    rm -f system/quests/government-ep2/q452-bb-j.bin ; \
-    rm -f system/quests/government-ep2/q453-bb-j.bin ; \
-    rm -f system/quests/government-ep2/q454-bb-j.bin ; \
-    rm -f system/quests/government-ep2/q455-bb-j.bin ; \
-    rm -f system/quests/government-ep2/q456-bb-j.bin ; \
-    rm -f system/quests/government-ep2/q457-bb-j.bin ; \
-    rm -f system/quests/government-ep2/q458-bb-j.bin ; \
-    rm -f system/quests/government-ep2/q459-bb-j.bin ; \
-    rm -f system/quests/government-ep2/q460-bb-j.bin ; \
-    rm -f system/quests/government-ep2/q461-bb-j.bin ; \
-    rm -f system/quests/government-ep2/q462-bb-j.bin ; \
-    rm -f system/quests/government-ep2/q463-bb-j.bin ; \
-    rm -f system/quests/government-ep2/q464-bb-j.bin ; \
-    rm -f system/quests/government-ep2/q465-bb-j.bin ; \
-    rm -f system/quests/government-ep2/q466-bb-j.bin ; \
-    rm -f system/quests/government-ep2/q467-bb-j.bin ; \
-    rm -f system/quests/government-ep2/q468-bb-j.bin ; \
-    rm -f system/quests/government-ep4/q701-bb-j.bin ; \
-    rm -f system/quests/government-ep4/q702-bb-j.bin ; \
-    rm -f system/quests/government-ep4/q703-bb-j.bin ; \
-    rm -f system/quests/government-ep4/q704-bb-j.bin ; \
-    rm -f system/quests/government-ep4/q705-bb-j.bin ; \
-    rm -f system/quests/government-ep4/q706-bb-j.bin ; \
-    rm -f system/quests/government-ep4/q707-bb-j.bin ; \
-    rm -f system/quests/government-ep4/q708-bb-j.bin ; \
-    rm -f system/quests/retrieval/q058-bb-j.bin ; \
-    rm -f system/quests/retrieval/q059-bb-j.bin ; \
-    rm -f system/quests/retrieval/q060-bb-j.bin ; \
-    rm -f system/quests/retrieval/q061-bb-j.bin ; \
-    rm -f system/quests/retrieval/q119-bb-j.bin ; \
-    rm -f system/quests/retrieval/q120-bb-j.bin ; \
-    rm -f system/quests/retrieval/q137-bb-j.bin ; \
-    rm -f system/quests/retrieval/q138-bb-j.bin ; \
-    rm -f system/quests/shops/q204-bb-j.bin ; \
-    rm -f system/quests/shops/q205-bb-j.bin ; \
-    rm -f system/quests/shops/q219-bb-j.bin ; \
-    rm -f system/quests/solo-extra/q030-bb-j.bin ; \
-    rm -f system/quests/solo-extra/q031-bb-j.bin ; \
-    rm -f system/quests/solo-extra/q032-bb-j.bin ; \
-    rm -f system/quests/solo-extra/q033-bb-j.bin ; \
-    rm -f system/quests/solo-extra/q034-bb-j.bin ; \
-    rm -f system/quests/solo-extra/q035-bb-j.bin ; \
-    rm -f system/quests/solo-extra/q126-bb-j.bin ; \
-    rm -f system/quests/solo-extra/q143-bb-j.bin ; \
-    rm -f system/quests/solo-story/q001-bb-j.bin ; \
-    rm -f system/quests/solo-story/q002-bb-j.bin ; \
-    rm -f system/quests/solo-story/q003-bb-j.bin ; \
-    rm -f system/quests/solo-story/q004-bb-j.bin ; \
-    rm -f system/quests/solo-story/q005-bb-j.bin ; \
-    rm -f system/quests/solo-story/q006-bb-j.bin ; \
-    rm -f system/quests/solo-story/q007-bb-j.bin ; \
-    rm -f system/quests/solo-story/q008-bb-j.bin ; \
-    rm -f system/quests/solo-story/q009-bb-j.bin ; \
-    rm -f system/quests/solo-story/q010-bb-j.bin ; \
-    rm -f system/quests/solo-story/q011-bb-j.bin ; \
-    rm -f system/quests/solo-story/q012-bb-j.bin ; \
-    rm -f system/quests/solo-story/q013-bb-j.bin ; \
-    rm -f system/quests/solo-story/q014-bb-j.bin ; \
-    rm -f system/quests/solo-story/q015-bb-j.bin ; \
-    rm -f system/quests/solo-story/q016-bb-j.bin ; \
-    rm -f system/quests/solo-story/q017-bb-j.bin ; \
-    rm -f system/quests/solo-story/q018-bb-j.bin ; \
-    rm -f system/quests/solo-story/q019-bb-j.bin ; \
-    rm -f system/quests/solo-story/q020-bb-j.bin ; \
-    rm -f system/quests/solo-story/q021-bb-j.bin ; \
-    rm -f system/quests/solo-story/q022-bb-j.bin ; \
-    rm -f system/quests/solo-story/q023-bb-j.bin ; \
-    rm -f system/quests/solo-story/q024-bb-j.bin ; \
-    rm -f system/quests/solo-story/q025-bb-j.bin ; \
-    rm -f system/quests/solo-story/q026-bb-j.bin ; \
-    rm -f system/quests/solo-story/q027-bb-j.bin ; \
-    rm -f system/quests/solo-story/q030-bb-j.bin ; \
-    rm -f system/quests/solo-story/q031-bb-j.bin ; \
-    rm -f system/quests/solo-story/q032-bb-j.bin ; \
-    rm -f system/quests/solo-story/q033-bb-j.bin ; \
-    rm -f system/quests/solo-story/q034-bb-j.bin ; \
-    rm -f system/quests/team/q709-bb-j.bin ; \
-    rm -f system/quests/team/q710-bb-j.bin ; \
-    rm -f system/quests/tower/q223-bb-j.bin ; \
-    rm -f system/quests/tower/q224-bb-j.bin ; \
-    rm -f system/quests/vr/q118-bb-j.bin ; \
-    rm -f system/quests/vr/q141-bb-j.bin ; \
-    rm -f system/quests/vr/q142-bb-j.bin ; \
-    rm -f system/quests/vr/q203-bb-j.bin ; \
-    rm -f system/quests/vr/q231-bb-j.bin ; \
-    rm -f system/quests/vr/q237-bb-j.bin ; \
-    rm -f system/quests/vr/q238-bb-j.bin ; \
-    rm -f system/quests/vr/q313-bb-j.bin ; \
-    rm -f system/quests/vr/q314-bb-j.bin ; \
-    rm -f system/quests/vr/q494-bb-j.bin
+RUN find system/quests -name "*-j.bin" -type f | while read j_file; do \
+    e_file="${j_file%-j.bin}-e.bin"; \
+    if [ -f "$e_file" ]; then \
+        rm "$j_file"; \
+    fi; \
+done
+
+RUN find system/quests -name "*-g.bin" -type f | while read g_file; do \
+    e_file="${g_file%-g.bin}-e.bin"; \
+    if [ -f "$e_file" ]; then \
+        rm "$g_file"; \
+    fi; \
+done
+
+RUN find system/quests -name "*-f.bin" -type f | while read f_file; do \
+    e_file="${f_file%-f.bin}-e.bin"; \
+    if [ -f "$e_file" ]; then \
+        rm "$f_file"; \
+    fi; \
+done
+
+RUN find system/quests -name "*-s.bin" -type f | while read s_file; do \
+    e_file="${s_file%-s.bin}-e.bin"; \
+    if [ -f "$e_file" ]; then \
+        rm "$s_file"; \
+    fi; \
+done
 
 # I personally only care about the GameCube versions and Blue Burst, so that's what I've exposed here.
 # EXPOSE doesn't actually do anything for kubernetes deployments. So this is really just a reminder to me.
