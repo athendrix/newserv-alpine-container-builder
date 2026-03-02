@@ -20,34 +20,16 @@ RUN apk add procps build-base git libevent-dev cmake zlib-dev icu-libs asio-dev 
 
 WORKDIR /src/newserv
 
-# Remove all the Blue Burst Japanese quests that have an English translation
+# Remove all the Blue Burst foreign language quests that have an English translation
 # (Because otherwise, my Blue Burst Clients grab the Japanese versions)
-RUN find system/quests -name "*-j.bin" -type f | while read j_file; do \
-    e_file="${j_file%-j.bin}-e.bin"; \
-    if [ -f "$e_file" ]; then \
-        rm "$j_file"; \
-    fi; \
-done
-
-RUN find system/quests -name "*-g.bin" -type f | while read g_file; do \
-    e_file="${g_file%-g.bin}-e.bin"; \
-    if [ -f "$e_file" ]; then \
-        rm "$g_file"; \
-    fi; \
-done
-
-RUN find system/quests -name "*-f.bin" -type f | while read f_file; do \
-    e_file="${f_file%-f.bin}-e.bin"; \
-    if [ -f "$e_file" ]; then \
-        rm "$f_file"; \
-    fi; \
-done
-
-RUN find system/quests -name "*-s.bin" -type f | while read s_file; do \
-    e_file="${s_file%-s.bin}-e.bin"; \
-    if [ -f "$e_file" ]; then \
-        rm "$s_file"; \
-    fi; \
+RUN for lang in j g f s; do \
+      find system/quests -name "*-${lang}.bin" -type f | while read lang_file; do \
+        e_file="${lang_file%-${lang}.bin}-e.bin"; \
+        if [ -f "$e_file" ]; then \
+          rm "$lang_file"; \
+        fi; \
+      done; \
+    done
 done
 
 # I personally only care about the GameCube versions and Blue Burst, so that's what I've exposed here.
