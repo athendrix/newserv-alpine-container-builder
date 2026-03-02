@@ -24,13 +24,12 @@ WORKDIR /src/newserv
 # (Because otherwise, my Blue Burst Clients grab the Japanese versions)
 RUN for lang in j g f s; do \
       find system/quests -name "*-${lang}.bin" -type f | while read lang_file; do \
-        e_file="${lang_file%-${lang}.bin}-e.bin"; \
+        e_file=$(echo "$lang_file" | sed "s/-${lang}.bin$/-e.bin/"); \
         if [ -f "$e_file" ]; then \
           rm "$lang_file"; \
         fi; \
       done; \
-    done ; \
-done;
+    done
 
 # I personally only care about the GameCube versions and Blue Burst, so that's what I've exposed here.
 # EXPOSE doesn't actually do anything for kubernetes deployments. So this is really just a reminder to me.
